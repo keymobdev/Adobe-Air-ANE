@@ -1,22 +1,25 @@
-Keymob is a simple lib to manage ad .
+### Keymob is a simple lib to manage ad .
 Keymob can be very easy to use management  various advertising platforms in application, including which platform ad impressions, the proportion of each platform, setting priorities.
 Support admob, chartboost, inmobi.mmedia, amazon, iad, baidu and other common advertising platform, more  platforms will been supported.
 Support rich forms of advertising, including the popular  banner  a variety of sizes, rect ads, Interstitial ads, video ads, More APP Ad.
 Ad config can been managed in  www.keymob.com ,  modify and adjust easy, you can config keymob with json format file , and then put it in  the project or on the website.
 
-Instructions
+### Instructions
 
-1. Download and install the library files
+#### 1. Download and install the library files
    Download keymob sdk,  add keymob.ane to the library path of  air project
     Delete Library in  com_keymob_sdks , leaving only one platform library in  com_keymob_sdks as the default  advertising  platform(for ios can delete all), even  you  are using multiple platforms.
    The following are plugin file of  each platform
-   admob Platform: AdmobAdapter.jar
-   amazon platform: AmazonAdapter.jar
-   chartboost Platform: ChartboostAdapter.jar
-   mmedia Platform: MMediaAdapter.jar
-   inmobi Platform: InmobiAdapter.jar
+  * admob Platform: AdmobAdapter.jar
+  * amazon platform: AmazonAdapter.jar
+  * chartboost Platform: ChartboostAdapter.jar
+  * mmedia Platform: MMediaAdapter.jar
+  * inmobi Platform: InmobiAdapter.jar
+  * baidu Platform: BaiduAdapter.jar
    Note: The file name of the adapter can not be modified
-2. Add code
+
+#### 2. Add code
+
   a. add import
 
 	import com.keymob.*;
