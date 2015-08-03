@@ -10,12 +10,12 @@ Ad config can been managed in  www.keymob.com ,  modify and adjust easy, you can
 Download keymob sdk,  add keymob.ane to the library path of  air project<br/>
 Delete Library in  com_keymob_sdks , leaving only one platform library in  com_keymob_sdks as the default  advertising  platform(for ios can delete all), even  you  are using multiple platforms.<br/>
 The following are plugin file of  each platform<br/>
-* admob Platform: AdmobAdapter.jar
-* amazon platform: AmazonAdapter.jar
-* chartboost Platform: ChartboostAdapter.jar
-* mmedia Platform: MMediaAdapter.jar
-* inmobi Platform: InmobiAdapter.jar
-* baidu Platform: BaiduAdapter.jar
+   * admob Platform: AdmobAdapter.jar
+   * amazon platform: AmazonAdapter.jar
+   * chartboost Platform: ChartboostAdapter.jar
+   * mmedia Platform: MMediaAdapter.jar
+   * inmobi Platform: InmobiAdapter.jar
+   * baidu Platform: BaiduAdapter.jar
 
 Note: The file name of the adapter can not be modified
 
@@ -188,4 +188,4 @@ The above are permissions advertising platform needs, basic permissions are requ
 
 Depending ratemodel priority will become the sort of number or proportion. class is impliment of  platform, the value can not be altered
 
-Project Address: https: //github.com/keymobdev/Air-ANE-Ad
+Project home http://github.com/keymobdev/Air-ANE-Ad
