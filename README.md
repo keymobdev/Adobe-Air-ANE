@@ -8,16 +8,6 @@ Ad config can been managed in  www.keymob.com ,  modify and adjust easy, you can
 
 #### 1. Download and install the library files
 Download keymob sdk,  add keymob.ane to the library path of  air project<br/>
-Delete Library in  com_keymob_sdks , leaving only one platform library in  com_keymob_sdks as the default  advertising  platform(for ios can delete all), even  you  are using multiple platforms.<br/>
-The following are plugin file of  each platform<br/>
-   * admob Platform: AdmobAdapter.jar
-   * amazon platform: AmazonAdapter.jar
-   * chartboost Platform: ChartboostAdapter.jar
-   * mmedia Platform: MMediaAdapter.jar
-   * inmobi Platform: InmobiAdapter.jar
-   * baidu Platform: BaiduAdapter.jar
-
-Note: The file name of the adapter can not be modified
 
 #### 2. Add code
 
@@ -125,7 +115,17 @@ So make sure the More App is ready before every show.Below is the overall look.<
 	   KeymobAd.getInstance().showAppWall ();
 	}
 
-### 3. Set profile
+i. handler ad event
+	KeymobAd.getInstance().addEventListener(AdEvent.ON_LOADED_SUCCESS,onLoadSuccess);
+	 function onLoadSuccess(event:AdEvent):void
+	{
+		if(event.adtype==AdTypes.INTERSTITIAL){
+			KeymobAd.getInstance().showInterstitial();
+		}
+	}
+
+
+### 3. Set profile for android
 
 #### a. Configuring air Android app permissions
 
@@ -147,8 +147,8 @@ So make sure the More App is ready before every show.Below is the overall look.<
 ```
   
 The above are permissions advertising platform needs, basic permissions are required by all advertising platform, location is required by some platforms, in order to save the sake , both blocks can be added to this configuration.<br/>
- WRITE_EXTERNAL_STORAGE  permission is required by chartboost, if added chartboost, you need to add this permission.<br/>
- The audio and microphone permissions are required by  mmedia, if used mmedia platform,  add it to configuration<br/>
+WRITE_EXTERNAL_STORAGE  permission is required by chartboost, if added chartboost, you need to add this permission.<br/>
+The audio and microphone permissions are required by  mmedia, if used mmedia platform,  add it to configuration<br/>
 
 
 #### b. Configure the android platform and service-related activity
@@ -166,8 +166,24 @@ The above are permissions advertising platform needs, basic permissions are requ
         <activity android:name="com.keymob.sdk.core.KeymobActivity"   android:theme="@android:style/Theme.Dialog" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"  />
 	<!-- baidu -->     
 	<activity android:name="com.baidu.mobads.AppActivity" android:configChanges="keyboard|keyboardHidden|orientation"/> 
+
+	 <!-- adcolony -->     
+	<activity android:name="com.jirbo.adcolony.AdColonyOverlay" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+	<activity android:name="com.jirbo.adcolony.AdColonyFullscreen" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+	<activity android:name="com.jirbo.adcolony.AdColonyBrowser" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
+	<!-- gdt -->     
+	<service android:name="com.qq.e.comm.DownloadService" android:exported="false"/>
+	<activity android:name="com.qq.e.ads.ADActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+	 
 ```
   The above is the various advertising platforms require configuration activity, choose according to their own advertising platform, add a corresponding configuration to androidmanifest.xml in activity.
+
+#### c. add platform resource
+     if you plan to use baidu ,copy biduad_plugin into folder src of   project
+     if you plan to use gdt ,copy gdt_plugin into folder src of   project
+     copy com_keymob_sdks into folder src of project.if you do not want to use admob as default platform ,download other adapters from https://github.com/keymobdev/admob-adapter/archive/master.zip
+     Note: The file name of the adapter can not be modified,only need add one default platform.
 
 ### The advertising platform configuration file templates
 

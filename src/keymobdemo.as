@@ -1,7 +1,9 @@
 package
 {
+	import com.keymob.AdEvent;
 	import com.keymob.AdPositions;
 	import com.keymob.AdSizes;
+	import com.keymob.AdTypes;
 	import com.keymob.KeymobAd;
 	
 	import flash.display.Sprite;
@@ -28,10 +30,20 @@ package
 			ui.addButton("video",200,100);
 			ui.addButton("appwall",10,200);
 			km=KeymobAd.getInstance();
+			km.addEventListener(AdEvent.ON_LOADED_SUCCESS,onLoadSuccess);
 				var config:String=new jsonConfig();
 			if(km.supportDevice){
 //				km.initFromJSON(config);
-				km.initFromKeymobService("1",true);
+//				km.initFromKeymobService("2",false,"http://192.168.0.100/");
+				km.initFromKeymobService("2",true);
+//				km.initFromKeymobService("1",true);
+			}
+		}
+		
+		protected function onLoadSuccess(event:AdEvent):void
+		{
+			if(event.adtype==AdTypes.INTERSTITIAL){
+				km.showInterstitial();
 			}
 		}
 		

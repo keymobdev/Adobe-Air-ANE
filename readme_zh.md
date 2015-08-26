@@ -1,6 +1,6 @@
 keymob 是一个简单易用的广告管理库。
 使用keymob能非常方便的管理应用中各个广告平台的广告，包括展示哪些平台的广告，各个平台的比例，优先顺序等。
-支持admob,chartboost,inmobi.mmedia,amazon,iad,baidu等常用广告平台，后面会根据大家的反馈加入更多的常见平台的支持。
+支持admob,chartboost,inmobi.mmedia,amazon,iad,baidu,广点通，adcolony等常用广告平台，后面会根据大家的反馈加入更多的常见平台的支持。
 广告形式支持丰富，包括各种尺寸的banner广告，方块广告，全屏广告，视频广告，应用墙广告等当前流行的广告。
 使用时把各个平台的广告ID和比例优先级顺序等信息配置在www.keymob.com 系统里面，随时修改和调整，也可以按json格式配置，配置广告平台信息，然后把json文件放项目里，或者网站上。
 
@@ -8,14 +8,6 @@ keymob 是一个简单易用的广告管理库。
 
 1.下载安装库文件
    下载keymob sdk,把keymob.ane添加到air移动应用项目的库路径中
-    删除com_keymob_sdks下的库，只留下一个平台库作为默认平台广告（针对ios的可以全部删除），即使你使用了多个平台也一样，只需要留一个平台。
-   如下是各个广告平台对应的插件文件
-   admob平台：AdmobAdapter.jar
-   amazon平台:  AmazonAdapter.jar
-   chartboost平台: ChartboostAdapter.jar
-   mmedia平台：  MMediaAdapter.jar
-   inmobi平台:  InmobiAdapter.jar
-   注意：插件的文件名称不能修改变动，插件删到只需要添加一个默认的广告平台
 2.添加 代码
   a.引入代码
 
@@ -120,8 +112,16 @@ h. 应用墙广告的加载和展示
    	if(KeymobAd.getInstance().isAppWallReady()){
 		KeymobAd.getInstance().showAppWall();
 	}
+i. 处理广告事件
+	KeymobAd.getInstance().addEventListener(AdEvent.ON_LOADED_SUCCESS,onLoadSuccess);
+	 function onLoadSuccess(event:AdEvent):void
+	{
+		if(event.adtype==AdTypes.INTERSTITIAL){
+			KeymobAd.getInstance().showInterstitial();
+		}
+	}
 
-3.设置配置文件
+3.针对Android平台的处理
 
   a.配置air安卓应用权限
 
@@ -160,7 +160,26 @@ h. 应用墙广告的加载和展示
 	<!-- Baidu -->     
 	<activity android:name="com.baidu.mobads.AppActivity" android:configChanges="keyboard|keyboardHidden|orientation"/> 
 
+	 <!-- adcolony -->     
+	<activity android:name="com.jirbo.adcolony.AdColonyOverlay" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+	<activity android:name="com.jirbo.adcolony.AdColonyFullscreen" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+	<activity android:name="com.jirbo.adcolony.AdColonyBrowser" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
+	<!-- gdt -->     
+	<service android:name="com.qq.e.comm.DownloadService" android:exported="false"/>
+	<activity android:name="com.qq.e.ads.ADActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+	 
+
   上面是各个广告平台要求配置的activity，根据自己选择使用的广告平台，添加对应的activity配置到androidmanifest.xml中。
+
+  c.添加平台文件
+   如果打算使用baidu则把biduad_plugin也复制到工程项目的src目录下
+   如果打算使用gdt则把gdt_plugin目录也复制到工程的src目录下
+   
+   把 src/com_keymob_sdks 文件夹复制到工程项目src目录中，
+   com_keymob_sdks目录下有个AdmobAdapter.jar ，这个是在连接keymob失败的情况下使用的平台，如果想使用其他平台作为备用平台，
+   可以从https://github.com/keymobdev/admob-adapter/archive/master.zip下载
+   注意：下载到的平台插件文件名称不能修改，只需要添加一个默认的广告平台
 
 4.广告平台配置文件模板
 	{
@@ -181,3 +200,4 @@ h. 应用墙广告的加载和展示
 priority会根据ratemodel不同而成为比重或者排序号。class表示平台实现,值不能随意更改
 
 项目地址：https://github.com/keymobdev/Air-ANE-Ad
+详细说明文档：http://www.keymob.com/tutorial_zh/index.html
