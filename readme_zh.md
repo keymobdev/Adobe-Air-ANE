@@ -187,6 +187,7 @@ i. 处理广告事件
 		"rateModel":1,//广告平台排序规则，0表示priority是权重，各个平台按比例显示广告，1表示priority是顺序，各个平台按顺序展示广告
 		"platforms":[
 		{"class":"AdmobAdapter","priority":90,"key1":"ca-app-pub-xxx/xxx","key2":"ca-app-pub-xxx/xxx"},//admob 平台 ,key1 banner ID，key2全屏id
+		{"class":"BaiduAdapter","priority":10,"key1":"apid","key2":"apsec"},//baidu platform,key1 和 key2是一样的值
 		{"class":"AmazonAdapter","priority":20,"key1":"xxx"},//amazon 平台 ,key1 appkey
 		{"class":"ChartboostAdapter","priority":40,"key1":"xxx","key2":"xxx"},//chartboost 平台 ,key1 appID，key2 signature
 		{"class":"InmobiAdapter","priority":50,"key1":"xxx"},//inmobi 平台 ,key1 appid 

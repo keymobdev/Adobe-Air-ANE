@@ -193,6 +193,7 @@ The audio and microphone permissions are required by  mmedia, if used mmedia pla
 		"rateModel":1,//0 said priority is  represents the weight of each platform ,1 said the priority is the order of each platform to display ads
 		"platforms":[
 		{"class":"AdmobAdapter","priority":10,"key1":"ca-app-pub-xxx/xxx","key2":"ca-app-pub-xxx/xxx"},//admob  ,key1 banner ID，key2 Interstitial id
+		{"class":"BaiduAdapter","priority":10,"key1":"apid","key2":"apsec"},//baidu platform,key1 and key2 is the same value
 		{"class":"AmazonAdapter","priority":10,"key1":"xxx"},//amazon ,key1 appkey
 		{"class":"ChartboostAdapter","priority":10,"key1":"xxx","key2":"xxx"},//chartboost ,key1 appID，key2 signature
 		{"class":"InmobiAdapter","priority":10,"key1":"xxx"},//inmobi ,key1 appid 
