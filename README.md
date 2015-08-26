@@ -197,6 +197,8 @@ The audio and microphone permissions are required by  mmedia, if used mmedia pla
 		{"class":"ChartboostAdapter","priority":10,"key1":"xxx","key2":"xxx"},//chartboost ,key1 appID，key2 signature
 		{"class":"InmobiAdapter","priority":10,"key1":"xxx"},//inmobi ,key1 appid 
 		{"class":"IadAdapter","priority":10,"key1":"appid"},//iad ,will be automatically ignored on android
+		{"class":"GDTAdapter","priority":10,"key1":"appid","key2":"banner id","param":"Interstitial ID"},//gdt platform
+		{"class":"AdcolonyAdapter","priority":10,"key1":"appid","key2":"zone interstitia","param":"video zone"},//adcolony platform
 		{"class":"MMediaAdapter","priority":10,"key1":"xxx","key2":"xxx"}//mmedia ,key1 banner apID，key2 Interstitial apid
 		]
 	}
