@@ -202,5 +202,5 @@ i. 处理广告事件
 
 priority会根据ratemodel不同而成为比重或者排序号。class表示平台实现,值不能随意更改
 
-项目地址：https://github.com/keymobdev/Air-ANE-Ad
+项目地址：https://github.com/keymobdev/Adobe-Air-ANE
 详细说明文档：http://www.keymob.com/tutorial_zh/index.html
