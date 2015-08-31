@@ -208,3 +208,4 @@ The audio and microphone permissions are required by  mmedia, if used mmedia pla
 Depending ratemodel priority will become the sort of number or proportion. class is impliment of  platform, the value can not be altered
 
 Project home https://github.com/keymobdev/Adobe-Air-ANE
+qq group :310513042
