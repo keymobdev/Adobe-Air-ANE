@@ -9,6 +9,8 @@
 {"class":"InmobiAdapter","priority":50,"key1":"ad id"},
 {"class":"IadAdapter","priority":50,"key1":"appid"},
 {"class":"BaiduAdapter","priority":50,"key1":"apid","key2":"apsec"},
+{"class":"GDTAdapter","priority":10,"key1":"appid","key2":"banner id","param":"Interstitial ID"},//gdt platform
+{"class":"AdcolonyAdapter","priority":10,"key1":"appid","key2":"zone interstitia","param":"video zone"},//adcolony platform
 {"class":"MMediaAdapter","priority":50,"key1":"banner id","key2":"Interstitial ID"}
 ]
 }
