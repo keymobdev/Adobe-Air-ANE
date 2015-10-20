@@ -193,10 +193,10 @@ The audio and microphone permissions are required by  mmedia, if used mmedia pla
 		"rateModel":1,//0 said priority is  represents the weight of each platform ,1 said the priority is the order of each platform to display ads
 		"platforms":[
 		{"class":"AdmobAdapter","priority":10,"key1":"ca-app-pub-xxx/xxx","key2":"ca-app-pub-xxx/xxx"},//admob  ,key1 banner ID，key2 Interstitial id
-		{"class":"BaiduAdapter","priority":10,"key1":"apid","key2":"apsec"},//baidu platform,key1 and key2 is the same value
+		{"class":"BaiduAdapter","priority":10,"key1":"apid","key2":"banner id","param":"Interstitial id"},//baidu ssp platform,param can been Interstitial id or json string {"interstitialID":"interstitial ID","videoID":" video ID"}
 		{"class":"AmazonAdapter","priority":10,"key1":"xxx"},//amazon ,key1 appkey
 		{"class":"ChartboostAdapter","priority":10,"key1":"xxx","key2":"xxx"},//chartboost ,key1 appID，key2 signature
-		{"class":"InmobiAdapter","priority":10,"key1":"xxx"},//inmobi ,key1 appid 
+		{"class":"InmobiAdapter","priority":10,"key1":"property id","key2":"banner id","param":"Interstitial id"},//inmobi ,key1 appid 
 		{"class":"IadAdapter","priority":10,"key1":"appid"},//iad ,will be automatically ignored on android
 		{"class":"GDTAdapter","priority":10,"key1":"appid","key2":"banner id","param":"Interstitial ID"},//gdt platform
 		{"class":"AdcolonyAdapter","priority":10,"key1":"appid","key2":"zone interstitia","param":"video zone"},//adcolony platform
