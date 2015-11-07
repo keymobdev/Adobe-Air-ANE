@@ -153,29 +153,79 @@ The audio and microphone permissions are required by  mmedia, if used mmedia pla
 
 #### b. Configure the android platform and service-related activity
 ```
-	<!-- Admob Mobile Ads -->
-	<meta-data android:name="com.google.android.gms.version" android:value="7327000" />
-	<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent"/>
-	<!-- Amazon Mobile Ads -->
-	<activity android:name="com.amazon.device.ads.AdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
-	<!-- InMobi -->
-	<activity android:name="com.inmobi.androidsdk.IMBrowserActivity" android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:hardwareAccelerated="true" />
-	<!-- Millennial Media -->
-	<activity android:name="com.millennialmedia.android.MMActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="keyboardHidden|orientation|keyboard|screenSize" />
-	<!-- Keymob -->      
-        <activity android:name="com.keymob.sdk.core.KeymobActivity"   android:theme="@android:style/Theme.Dialog" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"  />
-	<!-- baidu -->     
-	<activity android:name="com.baidu.mobads.AppActivity" android:configChanges="keyboard|keyboardHidden|orientation"/> 
+<!-- Admob -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="8115000" />
 
-	 <!-- adcolony -->     
-	<activity android:name="com.jirbo.adcolony.AdColonyOverlay" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-	<activity android:name="com.jirbo.adcolony.AdColonyFullscreen" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
-	<activity android:name="com.jirbo.adcolony.AdColonyBrowser" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
 
-	<!-- gdt -->     
-	<service android:name="com.qq.e.comm.DownloadService" android:exported="false"/>
-	<activity android:name="com.qq.e.ads.ADActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
-	 
+        <!-- Amazon Mobile Ads -->
+        <activity
+            android:name="com.amazon.device.ads.AdActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+
+        <!-- InMobi -->
+        <activity
+            android:name="com.inmobi.rendering.InMobiAdActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            />
+
+        <!-- Millennial Media -->
+        <activity
+            android:name="com.millennialmedia.internal.MMActivity"
+            
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.millennialmedia.internal.MMIntentWrapperActivity"
+            android:label="sdk" />
+        
+
+        <!-- Keymob -->
+        <activity
+            android:name="com.keymob.sdk.core.KeymobActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Dialog" />
+        <!-- baidu -->
+        <activity
+            android:name="com.baidu.mobads.AppActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+
+        <!-- adcolony -->
+        <activity
+            android:name="com.jirbo.adcolony.AdColonyOverlay"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.jirbo.adcolony.AdColonyFullscreen"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.jirbo.adcolony.AdColonyBrowser"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
+        <!-- guang dian tong -->
+        <service
+            android:name="com.qq.e.comm.DownloadService"
+            android:exported="false" />
+            <activity
+            android:name="com.qq.e.ads.ADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+
+        <!-- chartboost -->
+        	<activity android:name="com.chartboost.sdk.CBImpressionActivity"
+            	   android:excludeFromRecents="true"
+                   android:hardwareAccelerated="true"
+            	   android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+                   android:configChanges="keyboardHidden|orientation|screenSize"/>
+        
+ 	 
 ```
   The above is the various advertising platforms require configuration activity, choose according to their own advertising platform, add a corresponding configuration to androidmanifest.xml in activity.
 
@@ -193,14 +243,14 @@ The audio and microphone permissions are required by  mmedia, if used mmedia pla
 		"rateModel":1,//0 said priority is  represents the weight of each platform ,1 said the priority is the order of each platform to display ads
 		"platforms":[
 		{"class":"AdmobAdapter","priority":10,"key1":"ca-app-pub-xxx/xxx","key2":"ca-app-pub-xxx/xxx"},//admob  ,key1 banner ID，key2 Interstitial id
-		{"class":"BaiduAdapter","priority":10,"key1":"apid","key2":"banner id","param":"Interstitial id"},//baidu ssp platform,param can been Interstitial id or json string {"interstitialID":"interstitial ID","videoID":" video ID"}
+		{"class":"BaiduAdapter","priority":10,"key1":"apid","key2":"banner id","param":"{\"interstitialID\":\"interstitial ID\",\"videoID\":\"video ID\"}"},//baidu platform,param is a json string.remove video ID key value for ios
 		{"class":"AmazonAdapter","priority":10,"key1":"xxx"},//amazon ,key1 appkey
 		{"class":"ChartboostAdapter","priority":10,"key1":"xxx","key2":"xxx"},//chartboost ,key1 appID，key2 signature
-		{"class":"InmobiAdapter","priority":10,"key1":"property id","key2":"banner id","param":"Interstitial id"},//inmobi ,key1 appid 
+		{"class":"InmobiAdapter","priority":10,"key1":"xxx","key2":"","param":" interstitial placement"},//inmobi ,key1 appid ,key2 banner placement,param interstitial placement
 		{"class":"IadAdapter","priority":10,"key1":"appid"},//iad ,will be automatically ignored on android
-		{"class":"GDTAdapter","priority":10,"key1":"appid","key2":"banner id","param":"Interstitial ID"},//gdt platform
+		{"class":"GDTAdapter","priority":10,"key1":"appid","key2":"banner id", "param":"{\"interstitialID\":\"interstitial ID\",\"appWallID\":\"app Wall ID\"}"},//gdt platform
 		{"class":"AdcolonyAdapter","priority":10,"key1":"appid","key2":"zone interstitia","param":"video zone"},//adcolony platform
-		{"class":"MMediaAdapter","priority":10,"key1":"xxx","key2":"xxx"}//mmedia ,key1 banner apID，key2 Interstitial apid
+		{"class":"MMediaAdapter","priority":10,"key1":"banner id","key2":"Interstitial id"}//mmedia ,key1 banner apID，key2 Interstitial apid
 		]
 	}
 ```
