@@ -32,10 +32,7 @@ package
 			km.addEventListener(AdEvent.ON_LOADED_SUCCESS,onLoadSuccess);
 				var config:String=new jsonConfig();
 			if(km.supportDevice){
-//				km.initFromJSON(config);
-//				km.initFromKeymobService("2",false,"http://192.168.0.100/");
 				km.initFromKeymobService("2",true);
-//				km.initFromKeymobService("1",true);
 			}
 		}
 		
