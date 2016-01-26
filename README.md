@@ -4,6 +4,8 @@ Support admob, chartboost, inmobi.mmedia, amazon, iad, baidu and other common ad
 Support rich forms of advertising, including the popular  banner  a variety of sizes, rect ads, Interstitial ads, video ads, More APP Ad.<br/>
 Ad config can been managed in  www.keymob.com ,  modify and adjust easy, you can config keymob with json format file , and then put it in  the project or on the website.<br/>
 
+support ios and android,required air sdk 20 release version or later.
+
 ### Instructions
 
 #### 1. Download and install the library files
