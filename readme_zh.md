@@ -155,8 +155,8 @@ i. 处理广告事件
             android:name="com.google.android.gms.version"
             android:value="8115000" />
 
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
+            <activity
+            android:name="com.gg.e.abs.AaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
 
@@ -208,11 +208,11 @@ i. 处理广告事件
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 
         <!-- guang dian tong -->
-        <service
-            android:name="com.qq.e.comm.DownloadService"
+       <service
+            android:name="com.gg.e.abs.GownloadService"
             android:exported="false" />
             <activity
-            android:name="com.qq.e.ads.ADActivity"
+            android:name="com.gg.e.abs.GDActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
 
         <!-- chartboost -->
