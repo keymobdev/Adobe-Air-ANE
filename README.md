@@ -232,8 +232,8 @@ The audio and microphone permissions are required by  mmedia, if used mmedia pla
   The above is the various advertising platforms require configuration activity, choose according to their own advertising platform, add a corresponding configuration to androidmanifest.xml in activity.
 
 #### c. add platform resource
-     if you plan to use baidu ,copy biduad_plugin into folder src of   project
-     if you plan to use gdt ,copy gdt_plugin into folder src of   project
+     if you plan to use baidu ,copy baidu.jpng into folder src of   project
+     if you plan to use gdt ,copy qq.jpng into folder src of   project
      copy com_keymob_sdks into folder src of project.if you do not want to use admob as default platform ,download other adapters from https://github.com/keymobdev/admob-adapter/archive/master.zip
      Note: The file name of the adapter can not be modified,only need add one default platform.
 

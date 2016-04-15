@@ -227,11 +227,11 @@ i. 处理广告事件
   上面是各个广告平台要求配置的activity，根据自己选择使用的广告平台，添加对应的activity配置到androidmanifest.xml中。
 
   c.添加平台文件
-   如果打算使用baidu则把biduad_plugin也复制到工程项目的src目录下
-   如果打算使用gdt则把gdt_plugin目录也复制到工程的src目录下
+   如果打算使用baidu则把baidu.jpng也复制到工程项目的src目录下
+   如果打算使用gdt则把qq.jpng目录也复制到工程的src目录下
    
    把 src/com_keymob_sdks 文件夹复制到工程项目src目录中，
-   com_keymob_sdks目录下有个AdmobAdapter.jar ，这个是在连接keymob失败的情况下使用的平台，如果想使用其他平台作为备用平台，
+   com_keymob_sdks目录下有个BaiduAdapter.jpng ，这个是在连接keymob失败的情况下使用的平台，如果想使用其他平台作为备用平台，
    可以从https://github.com/keymobdev/admob-adapter/archive/master.zip下载
    注意：下载到的平台插件文件名称不能修改，只需要添加一个默认的广告平台
 
